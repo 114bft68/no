@@ -110,10 +110,9 @@ function ttt() {
                 canvas.style.pointerEvents = 'auto';
             }, 500);
             rect = canvas.getBoundingClientRect();
-            if (navigator.userAgent.includes('Win') || navigator.userAgent.includes('Mac') || navigator.userAgent.includes('CrOS')) {
-                x = e.clientX - rect.left;
-                y = e.clientY - rect.top;
-            } else {
+            x = e.clientX - rect.left;
+            y = e.clientY - rect.top;
+            if (x === 'NaN' || x === undefined || x === null) {
                 x = e.touches[0].clientX - rect.left;
                 y = e.touches[0].clientY - rect.top;
             }
