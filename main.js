@@ -63,13 +63,6 @@ function btnEvents(e) {
         });
         screens[5].style.display = 'flex';
     }
-    if (e.target === buttons[11]) {
-        navigator.clipboard.write(document.body.style.background);
-        buttons[11].innerHTML = 'Copied!';
-        setTimeout(() => {
-            buttons[11].innerHTML = 'Copy Background Color';
-        }, 500);
-    }
     if (e.target === buttons[3] || e.target === buttons[6] || e.target === buttons[7] || e.target === buttons[8] || e.target === buttons[10]) {
         screens.forEach((s, i) => {
             if (i !== 0) {
