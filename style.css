@@ -28,7 +28,8 @@ button:hover {
 #first,
 #second,
 #g1,
-#g2 {
+#g2,
+#g3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
