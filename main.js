@@ -11,7 +11,7 @@ document.documentElement.addEventListener('keydown', (event) => {
 });
 
 const screens = [document.getElementById('main'), document.getElementById('first'), document.getElementById('second'), document.getElementById('g1'), document.getElementById('g2'), document.getElementById('g3')];
-const buttons = [document.getElementById('buttonTo1'), document.getElementById('buttonTo2'), document.getElementById('changeBg'), document.getElementById('return1'), document.getElementById('btnG1'), document.getElementById('btnG2'), document.getElementById('return2'), document.getElementById('return3'), document.getElementById('return4'), document.getElementById('btnG3'), document.getElementById('return5')];
+const buttons = [document.getElementById('buttonTo1'), document.getElementById('buttonTo2'), document.getElementById('changeBg'), document.getElementById('return1'), document.getElementById('btnG1'), document.getElementById('btnG2'), document.getElementById('return2'), document.getElementById('return3'), document.getElementById('return4'), document.getElementById('btnG3'), document.getElementById('return5'), document.getElementById('copyBg')];
 var tttRunned = false;
 
 screens.slice(1, 5).forEach((e) => {
@@ -62,6 +62,9 @@ function btnEvents(e) {
             }
         });
         screens[5].style.display = 'flex';
+    }
+    if (e.target === buttons[11]) {
+        navigator.clipboard.write(document.body.style.background);
     }
     if (e.target === buttons[3] || e.target === buttons[6] || e.target === buttons[7] || e.target === buttons[8] || e.target === buttons[10]) {
         screens.forEach((s, i) => {
