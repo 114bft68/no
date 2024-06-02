@@ -82,7 +82,7 @@ fetch('https://api.github.com/repos/nuhuhname/n')
                 text = y;
             }
         }
-        let diff = Math.round((((time.getTime()) + (time.getTimezoneOffset() * 60000)) - Date.parse(updated)) / 60000);
+        let diff = Math.round(((time.getTime()) - Date.parse(updated)) / 60000);
         if (diff >= 60) {
             diff = Math.round(diff / 60);
             if (diff >= 24) {
