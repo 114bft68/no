@@ -1,6 +1,6 @@
 function bgColor() {
     document.body.style.background = `radial-gradient(at top, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent), radial-gradient(at right, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent), radial-gradient(at bottom, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent), radial-gradient(at left, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent)`;
-}
+} // serene color indeed :)
 bgColor();
 
 const screens = [document.getElementById('main'), document.getElementById('first'), document.getElementById('second'), document.getElementById('g1'), document.getElementById('g2'), document.getElementById('g3')];
@@ -97,7 +97,7 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         } else {
             diffText('minute ago', 'minutes ago');
         }
-        document.getElementById('lastUpdatedTime').innerHTML = `${updated.slice(0, 10)} (${diff} ${text})`;
+        document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${diff} ${text})`;
     })
     .catch((error) => {
         document.getElementById('lastUpdatedTime').innerHTML = 'unknown';
