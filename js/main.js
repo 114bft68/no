@@ -74,12 +74,12 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         let time = new Date(Date());
         let updated = response['updated_at'];
         let text;
-        function diffText(x, y, a) {
+        function diffText(x, y) {
             if (diff === 0) {
                 diff = '';
                 text = 'just now';
             } else if (diff === 1) {
-                diff = a;
+                diff = 'a';
                 text = x;
             } else {
                 text = y;
@@ -90,12 +90,12 @@ fetch('https://api.github.com/repos/nuhuhname/n')
             diff = Math.round(diff / 60);
             if (diff >= 24) {
                 diff = Math.round(diff / 24);
-                diffText('day ago', 'days ago', 'a');
+                diffText('day ago', 'days ago');
             } else {
-                diffText('hour ago', 'hours ago', 'a');
+                diffText('hour ago', 'hours ago');
             }
         } else {
-            diffText('minute ago', 'minutes ago', 'a');
+            diffText('minute ago', 'minutes ago');
         }
         document.getElementById('lastUpdatedTime').innerHTML = `${updated.slice(0, 10)} (${diff} ${text})`;
     })
