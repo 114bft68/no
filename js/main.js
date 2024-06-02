@@ -75,14 +75,17 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         let updated = response['updated_at'];
         let text;
         function diffText(x, y, a) {
-            if (diff === 1) {
+            if (diff === 0) {
+                diff = '';
+                text = 'just now';
+            } else if (diff === 1) {
                 diff = a;
                 text = x;
             } else {
                 text = y;
             }
         }
-        let diff = Math.round(((time.getTime()) - Date.parse(updated)) / 60000);
+        let diff = Math.round((time.getTime() - Date.parse(updated)) / 60000);
         if (diff >= 60) {
             diff = Math.round(diff / 60);
             if (diff >= 24) {
