@@ -103,4 +103,4 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         document.getElementById('lastUpdatedTime').innerHTML = 'unknown';
         console.log(`Unable to fetch 'updated_at' from GitHub -> Error: ${error}`);
     })
-// credit to https://beautifier.io/ 
+// credit to https://beautifier.io/
