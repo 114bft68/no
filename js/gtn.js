@@ -145,4 +145,4 @@ function gtn() {
 }
 
 document.getElementById('btnG1').addEventListener('click', gtn);
-// credit to https://beautifier.io/ 
+// credit to https://beautifier.io/

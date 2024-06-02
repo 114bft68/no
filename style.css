@@ -12,7 +12,8 @@ body {
 }
 
 br {
-    line-height: 20px;
+    content: '';
+    height: 25px;
 }
 
 button {
@@ -40,10 +41,6 @@ button:hover {
     align-items: center;
     height: 100vh;
     margin: 0;
-}
-
-.container {
-    display: inline;
 }
 
 #hintText,
@@ -83,4 +80,5 @@ button:hover {
     color: white;
     text-align: center;
 }
+
 /* credit to https://beautifier.io/ */

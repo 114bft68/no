@@ -65,19 +65,21 @@ function ttt() {
     const btns = [document.getElementById('obtn'), document.getElementById('xbtn')];
     var user;
 
+    function same() {
+        document.getElementById('s1').style.display = 'none';
+        document.getElementById('s2').style.display = 'flex';
+        canvasF();
+    }
+
     btns.forEach((e) => {
         e.addEventListener('click', (btn) => {
             canvas.style.pointerEvents = 'none';
-            if (btn == btns[0]) {
+            if (btn.target == btns[0]) {
                 user = 1;
-                document.getElementById('s1').style.display = 'none';
-                document.getElementById('s2').style.display = 'flex';
-                canvasF();
+                same();
             } else {
                 user = 2;
-                document.getElementById('s1').style.display = 'none';
-                document.getElementById('s2').style.display = 'flex';
-                canvasF();
+                same();
             }
         });
     });
@@ -218,7 +220,7 @@ function ttt() {
     function restartTtt() {
         document.getElementById('s1').style.display = 'flex';
         document.getElementById('s2').style.display = 'none';
-        rect = x = y = nx = ny = sxy = sx = sy = wol = undefined;
+        rect = user = x = y = nx = ny = sxy = sx = sy = wol = undefined;
         turn = true;
         c = ['0,0', '0,100', '0,200', '100,0', '100,100', '100,200', '200,0', '200,100', '200,200'];
         w1 = ['0,0', '100,0', '200,0'];
@@ -251,7 +253,7 @@ function ttt() {
 function uhNoNameAgain() {
     document.getElementById('s1').style.display = 'flex';
     document.getElementById('s2').style.display = 'none';
-    rect = x = y = nx = ny = sxy = sx = sy = wol = undefined;
+    rect = user = x = y = nx = ny = sxy = sx = sy = wol = undefined;
     turn = true;
     c = ['0,0', '0,100', '0,200', '100,0', '100,100', '100,200', '200,0', '200,100', '200,200'];
     w1 = ['0,0', '100,0', '200,0'];

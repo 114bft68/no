@@ -20,6 +20,8 @@
     </div>
     <div id='first'>
         <div name='title' id='fTitle'>~ About this Website ~</div>
+        <canvas width='350' height='5'></canvas>
+        <br>
         <br>
         <div id='fDes'>This website was created by me, a gamer and a beginner to coding. While the website may not be flawless, I hope y'all will find the content enjoyable. Thanks for your support 🗣️🔥💯</div>
         <br>
@@ -29,10 +31,12 @@
         </div>
         <br>
         <br>
+        <br>
         <button onclick='menu()' id='return1'>Return to main menu</button>
     </div>
     <div id='second'>
         <div name='title' id='sTitle'>~ Minigames ~</div>
+        <canvas width='350' height='5'></canvas>
         <br>
         <br>
         <button id='btnG1'>Guess The Number (1-100)</button>
@@ -47,31 +51,30 @@
         <button onclick='menu()' id='return2'>Return to main menu</button>
     </div>
     <div id='g1'>
-        <div id='container'>
-            <div name='title' id='gtn'>Guess The Number (1-100)</div>
-            <br>
-            <br>
+        <div name='title' id='gtn'>Guess The Number (1-100)</div>
+        <br>
+        <br>
+        <div style='display: inline;'>
             <div id='hintText'>Hint: </div>
             <div id='hint' style='font-style: italic;'></div>
-            <br>
-            <br>
-            <input role='textbox' placeholder='Your guess' id='gtnInput' />
-            <br>
-            <br>
-            <button id='gtnSubmit'>SUBMIT</button>
-            <br>
+        </div>
+        <br>
+        <input role='textbox' placeholder='Your guess' id='gtnInput' />
+        <br>
+        <button id='gtnSubmit'>SUBMIT</button>
+        <div style='display: inline;'>
             <div name='tiny' id='attemptsText'>Attempts left: </div>
             <div id='attempts'></div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <button onclick='menu()' id='return3'>Return to main menu</button>
         </div>
+        <br>
+        <br>
+        <br>
+        <button onclick='menu()' id='return3'>Return to main menu</button>
     </div>
     <div id='g2'>
         <div id='s1'>
             <div name='title'>Select which role you want to be</div>
+            <br>
             <br>
             <button style='width: 25vh;' id='obtn'>Play as O</button>
             <br>

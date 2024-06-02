@@ -27,6 +27,18 @@ function hide() {
     });
 }
 
+let c = document.getElementsByTagName('canvas');
+
+function cd(canvas) {
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    ctx.beginPath();
+    ctx.moveTo(0, 5);
+    ctx.lineTo(canvas.width, 5);
+    ctx.stroke();
+}
+
 Array.from(buttons).forEach((b, i) => {
     b.addEventListener('click', (e) => {
         if (e.target === buttons[0]) {
@@ -38,6 +50,8 @@ Array.from(buttons).forEach((b, i) => {
                     s.style.display = 'flex';
                 }
             });
+            cd(c[0]);
+            cd(c[1]);
         }
     });
 });
@@ -57,10 +71,33 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         return response.json();
     })
     .then((response) => {
-        document.getElementById('lastUpdatedTime').innerHTML = response['updated_at'].slice(0, 10);
+        let time = new Date(Date());
+        let updated = response['updated_at'];
+        let text;
+        function diffText(x, y, a) {
+            if (diff === 1) {
+                diff = a;
+                text = x;
+            } else {
+                text = y;
+            }
+        }
+        let diff = Math.round((((time.getTime()) - (time.getTimezoneOffset() * 60000)) - Date.parse(updated)) / 60000);
+        if (diff >= 60) {
+            diff = Math.round(diff / 60);
+            if (diff >= 24) {
+                diff = Math.round(diff / 24);
+                diffText('day ago', 'days ago', 'a');
+            } else {
+                diffText('hour ago', 'hours ago', 'a');
+            }
+        } else {
+            diffText('minute ago', 'minutes ago', 'a');
+        }
+        document.getElementById('lastUpdatedTime').innerHTML = `${updated.slice(0, 10)} (${diff} ${text})`;
     })
     .catch((error) => {
         document.getElementById('lastUpdatedTime').innerHTML = 'unknown';
-        console.log(`Unable to fetch "updated_at" from GitHub -> Error: ${error}`);
+        console.log(`Unable to fetch 'updated_at' from GitHub -> Error: ${error}`);
     })
 // credit to https://beautifier.io/ 
