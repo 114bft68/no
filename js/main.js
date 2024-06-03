@@ -77,8 +77,8 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         let text;
         function diffText(x, y, a) {
             if (diff === 0) {
-                about = 'j';
-                diff = 'ust';
+                about = '';
+                diff = 'just';
                 text = ' now';
             } else if (diff === 1) {
                 diff = a;
