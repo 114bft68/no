@@ -98,6 +98,9 @@ fetch('https://api.github.com/repos/nuhuhname/n')
             diffText('minute ago', 'minutes ago', 'a');
         }
         document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${diff} ${text})`;
+        if (isNaN(diff)) {
+            document.getElementById('lastUpdatedTime').innerHTML = 'unknown error';
+        }
     })
     .catch((error) => {
         document.getElementById('lastUpdatedTime').innerHTML = `ERROR: ${error}`;
