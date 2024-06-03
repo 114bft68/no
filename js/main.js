@@ -78,6 +78,7 @@ fetch('https://api.github.com/repos/nuhuhname/n')
             if (diff === 0) {
                 diff = 'just';
                 text = ' now';
+                a = null;
             } else if (diff === 1) {
                 diff = a;
                 text = x;
