@@ -73,17 +73,18 @@ fetch('https://api.github.com/repos/nuhuhname/n')
     .then((response) => {
         let time = new Date(Date());
         let updated = response['updated_at'];
-        let about = 'about';
+        let about;
         let text;
         function diffText(x, y, a) {
             if (diff === 0) {
-                about = '';
                 diff = 'just';
                 text = ' now';
             } else if (diff === 1) {
+                about = 'about';
                 diff = a;
                 text = x;
             } else {
+                about = 'about';
                 text = y;
             }
         }
