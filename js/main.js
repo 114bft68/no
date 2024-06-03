@@ -74,7 +74,7 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         let time = new Date(Date());
         let updated = response['updated_at'];
         let text;
-        function diffText(x, y, a) {
+        function diffText(a, x, y) {
             if (diff === 0) {
                 diff = 'just';
                 text = 'now';
@@ -90,20 +90,16 @@ fetch('https://api.github.com/repos/nuhuhname/n')
             diff = Math.round(diff / 60);
             if (diff >= 24) {
                 diff = Math.round(diff / 24);
-                diffText('day ago', 'days ago', 'a');
+                diffText('a', 'day ago', 'days ago');
             } else {
-                diffText('hour ago', 'hours ago', 'an');
+                diffText('an', 'hour ago', 'hours ago');
             }
         } else {
-            diffText('minute ago', 'minutes ago', 'a');
+            diffText('a', 'minute ago', 'minutes ago');
         }
         document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${diff} ${text})`;
-        if (isNaN(diff)) {
-            document.getElementById('lastUpdatedTime').innerHTML = 'unknown error';
-        }
     })
     .catch((error) => {
-        document.getElementById('lastUpdatedTime').innerHTML = `ERROR: ${error}`;
         console.log(`Unable to fetch 'updated_at' from GitHub -> Error: ${error}`)
     })
 // credit to https://beautifier.io/
