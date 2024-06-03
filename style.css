@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
-body {
-    overflow: hidden;
-}
-
 * {
     font-family: 'Comfortaa';
     font-size: 25px;
@@ -80,5 +76,4 @@ button:hover {
     color: white;
     text-align: center;
 }
-
 /* credit to https://beautifier.io/ */
