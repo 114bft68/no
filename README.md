@@ -1,1 +1,1 @@
-<u>this is a small website I've created</u>
+<div style='color: black; align-text: center'>this is a small website I've created</div>
