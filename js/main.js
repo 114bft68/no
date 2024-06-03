@@ -80,7 +80,7 @@ fetch('https://api.github.com/repos/nuhuhname/n')
                 about = 'just now';
                 delete diff, text;
             } else if (diff === 1) {
-                about = 'about';
+                about = 'about ';
                 diff = a;
                 text = x;
             } else {
@@ -93,14 +93,14 @@ fetch('https://api.github.com/repos/nuhuhname/n')
             diff = Math.round(diff / 60);
             if (diff >= 24) {
                 diff = Math.round(diff / 24);
-                diffText('day ago', 'days ago', 'a');
+                diffText('day ago', 'days ago', 'a ');
             } else {
-                diffText('hour ago', 'hours ago', 'an');
+                diffText('hour ago', 'hours ago', 'an ');
             }
         } else {
-            diffText('minute ago', 'minutes ago', 'a');
+            diffText('minute ago', 'minutes ago', 'a ');
         }
-        document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${about} ${diff} ${text})`;
+        document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${about}${diff}${text})`;
     })
     .catch((error) => {
         document.getElementById('lastUpdatedTime').innerHTML = 'unknown';
