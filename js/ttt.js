@@ -65,7 +65,7 @@ function ttt() {
     const btns = [document.getElementById('obtn'), document.getElementById('xbtn')];
     var user;
 
-    function same() {
+    function s12() {
         document.getElementById('s1').style.display = 'none';
         document.getElementById('s2').style.display = 'flex';
         canvasF();
@@ -76,10 +76,10 @@ function ttt() {
             canvas.style.pointerEvents = 'none';
             if (btn.target == btns[0]) {
                 user = 1;
-                same();
+                s12();
             } else {
                 user = 2;
-                same();
+                s12();
             }
         });
     });
