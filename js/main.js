@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.scrollIntoView({
+        block: 'center',
+        inline: 'center'
+    });
+    document.body.style.overflow = 'hidden';
+});
+
 function bgColor() {
     document.body.style.background = `radial-gradient(at top, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent), radial-gradient(at right, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent), radial-gradient(at bottom, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent), radial-gradient(at left, rgb(${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}, ${Math.floor((Math.random() * (230 - 130)) + 130)}), transparent)`;
 } // serene color indeed ;)
