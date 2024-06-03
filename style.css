@@ -3,6 +3,7 @@
 body {
     overflow: hidden;
     align-item: center;
+    justify-content: center;
 }
 
 * {
