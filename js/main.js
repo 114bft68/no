@@ -99,7 +99,7 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         } else {
             diffText('minute ago', 'minutes ago', 'a');
         }
-        document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${about} ${diff} ${text})`;
+        document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} <u>(${about} ${diff} ${text})</u>`;
     })
     .catch((error) => {
         document.getElementById('lastUpdatedTime').innerHTML = 'unknown';
