@@ -8,7 +8,7 @@ const buttons = [document.getElementById('changeBg'), document.getElementById('b
 var tttRunned = false;
 
 function menu() {
-    screens.slice(1, 5).forEach((e) => {
+    screens.slice(1, 6).forEach((e) => {
         e.style.display = 'none';
     });
     screens[0].style.display = 'flex';
