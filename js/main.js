@@ -73,12 +73,13 @@ fetch('https://api.github.com/repos/nuhuhname/n')
     .then((response) => {
         let time = new Date(Date());
         let updated = response['updated_at'];
+        let about = 'about';
         let text;
         function diffText(x, y, a) {
             if (diff === 0) {
-                diff = 'just';
+                about = 'j';
+                diff = 'ust';
                 text = ' now';
-                a = null;
             } else if (diff === 1) {
                 diff = a;
                 text = x;
@@ -98,7 +99,7 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         } else {
             diffText('minute ago', 'minutes ago', 'a');
         }
-        document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (about ${diff} ${text})`;
+        document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${about} ${diff} ${text})`;
     })
     .catch((error) => {
         document.getElementById('lastUpdatedTime').innerHTML = 'unknown';
