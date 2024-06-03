@@ -108,6 +108,6 @@ fetch('https://api.github.com/repos/nuhuhname/n')
         document.getElementById('lastUpdatedTime').innerHTML = `${new Date(updated).toLocaleDateString()} (${diff} ${text})`;
     })
     .catch((error) => {
-        console.log(`Unable to fetch 'updated_at' from GitHub -> Error: ${error}`)
+        console.log(`Unable to fetch 'updated_at' from GitHub -> Error: ${error}`);
     })
 // credit to https://beautifier.io/
