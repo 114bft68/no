@@ -5,7 +5,7 @@ body {
 }
 
 * {
-    position: fixed;
+    position: relative;
     font-family: 'Comfortaa';
     font-size: 25px;
     text-align: center;
