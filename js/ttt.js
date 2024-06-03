@@ -287,4 +287,4 @@ document.getElementById('btnG2').addEventListener('click', () => {
         uhNoNameAgain();
     }
 });
-// credit to https://beautifier.io/ 
+// credit to https://beautifier.io/
