@@ -1,3 +1,4 @@
+document.title = [':)', ';)', ':(', ';(', ':}', ';}', ':{', ';{', ":')", ":'(", ";')", ";'(", '-_-'][Math.floor(Math.random() * 13)]; 
 document.addEventListener('DOMContentLoaded', () => {
     document.body.scrollIntoView({
         block: 'center',
