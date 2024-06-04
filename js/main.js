@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         block: 'center',
         inline: 'center'
     });
-    document.body.style.overflow = 'hidden';
+    //document.body.style.overflow = 'hidden';
 });
 
 function bgColor() {
