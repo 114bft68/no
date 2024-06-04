@@ -41,25 +41,27 @@ function ttt() {
         setTimeout(() => {
             canvas.style.pointerEvents = 'auto';
         }, 250);
-        // vertical lines
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
-        ctx.moveTo(canvas.width / 3, 0);
-        ctx.lineTo(canvas.width / 3, canvas.height);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(canvas.width / 3 * 2, 0);
-        ctx.lineTo(canvas.width / 3 * 2, canvas.height);
-        ctx.stroke();
-        // horizontal lines
-        ctx.beginPath();
-        ctx.moveTo(0, canvas.height / 3);
-        ctx.lineTo(canvas.width, canvas.height / 3);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(0, canvas.height / 3 * 2);
-        ctx.lineTo(canvas.width, canvas.height / 3 * 2);
-        ctx.stroke();
+        for (let i = 0; i < 3; i++) {
+            // vertical lines
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 3, 0);
+            ctx.lineTo(canvas.width / 3, canvas.height);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 3 * 2, 0);
+            ctx.lineTo(canvas.width / 3 * 2, canvas.height);
+            ctx.stroke();
+            // horizontal lines
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 3);
+            ctx.lineTo(canvas.width, canvas.height / 3);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 3 * 2);
+            ctx.lineTo(canvas.width, canvas.height / 3 * 2);
+            ctx.stroke();
+        }
     }
 
     const btns = [document.getElementById('obtn'), document.getElementById('xbtn')];
