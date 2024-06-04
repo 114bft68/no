@@ -6,7 +6,7 @@ function gtn() {
     var at = 7;
     attempts.innerHTML = at;
     var rnmn = Math.floor((Math.random() * 100) + 1);
-    var plsStart = false;
+    var gtnStart = false;
 
     var storedValue;
     var valueStoring = setInterval(() => {
@@ -30,7 +30,7 @@ function gtn() {
             rnmn = Math.floor((Math.random() * 100) + 1);
             at = 7;
             attempts.innerHTML = at;
-            plsStart = true;
+            gtnStart = true;
             hint.innerHTML = null;
             input.value = null;
             valueStoring = setInterval(() => {
@@ -40,7 +40,8 @@ function gtn() {
     }, 1);
 
     setInterval(() => {
-        if (plsStart == true) {
+        if (gtnStart == true) {
+            gtnStart = false;
             interval1 = setInterval(() => {
                 if (hint.innerHTML.length < 4) {
                     hint.innerHTML += '.';
@@ -57,7 +58,7 @@ function gtn() {
                     rnmn = Math.floor((Math.random() * 100) + 1);
                     at = 7;
                     attempts.innerHTML = at;
-                    plsStart = true;
+                    gtnStart = true;
                     hint.innerHTML = null;
                     input.value = null;
                     valueStoring = setInterval(() => {
@@ -65,7 +66,6 @@ function gtn() {
                     }, 1);
                 }
             }, 1);
-            plsStart = false;
         }
     }, 1);
 
@@ -78,51 +78,38 @@ function gtn() {
         }, 250);
     }
 
+    function gtnCheck(x, y) {
+        hint.innerHTML = x;
+        hintFontSizeTransition();
+        attempts.innerHTML = (at -= y);
+        input.value = null;
+        valueStoring = setInterval(() => {
+            storedValue = input.value;
+        }, 1);
+    }
+
     function eventGtn() {
         clearInterval(valueStoring);
         clearInterval(interval1);
-        if (storedValue !== '' && storedValue > 0 && storedValue <= 100) {
+        if (storedValue !== '' && !isNaN(storedValue) && storedValue > 0 && storedValue <= 100) {
             if (storedValue == rnmn) {
+                gtnCheck(null, 0);
                 alert('You won!');
                 rnmn = Math.floor((Math.random() * 100) + 1);
                 at = 7;
                 attempts.innerHTML = at;
-                plsStart = true;
-                hint.innerHTML = null;
-                input.value = null;
-                valueStoring = setInterval(() => {
-                    storedValue = input.value;
-                }, 1);
+                gtnStart = true;
             } else if (storedValue > rnmn) {
-                hintFontSizeTransition();
-                hint.innerHTML = 'too large... 🙏🤏';
-                attempts.innerHTML = at -= 1;
-                input.value = null;
-                valueStoring = setInterval(() => {
-                    storedValue = input.value;
-                }, 1);
+                gtnCheck('too large... 🙏🤏', 1);
             } else if (storedValue < rnmn) {
-                hintFontSizeTransition();
-                hint.innerHTML = 'too small... 🤏🤏';
-                attempts.innerHTML = at -= 1;
-                input.value = null;
-                valueStoring = setInterval(() => {
-                    storedValue = input.value;
-                }, 1);
+                gtnCheck('too small... 🤏🤏', 1);
             }
         } else if (storedValue == '') {
-            hintFontSizeTransition();
-            hint.innerHTML = 'empty... 😭';
-            valueStoring = setInterval(() => {
-                storedValue = input.value;
-            }, 1);
-        } else if (storedValue < 0 || storedValue > 100) {
-            input.value = null;
-            hintFontSizeTransition();
-            hint.innerHTML = 'the range is 1-100...';
-            valueStoring = setInterval(() => {
-                storedValue = input.value;
-            }, 1);
+            gtnCheck('empty... 😭', 0);
+        } else if (isNaN(storedValue)) {
+            gtnCheck('please enter a number', 0);
+        } else if (storedValue <= 0 || storedValue > 100) {
+            gtnCheck('the range is 1-100...', 0);
         }
     }
 
@@ -137,10 +124,8 @@ function gtn() {
         clearInterval(interval1);
         clearInterval(interval2);
         clearInterval(valueStoring);
-        delete at;
+        delete at, rnmn, gtnStart;
         hint.innerHTML = null;
-        delete rnmn;
-        delete plsStart;
     });
 }
 
